@@ -1,0 +1,1 @@
+loc("/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/kernels/reduce-axis-invalid.ttir":8:12): error: 'tt.reduce' op axis out of bounds for operand rank 1

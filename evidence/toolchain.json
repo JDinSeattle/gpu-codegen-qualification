@@ -1,0 +1,19 @@
+{
+  "triton_package": "3.8.0",
+  "triton_release_commit": "c01b6774b1865984607d89d89d3a10833de92037",
+  "llvm_prebuilt_revision": "5f07f818b51b786b0a87b4e514882600ecba112f",
+  "llvm_prebuilt_build_number": 1,
+  "llvm_prebuilt_selection": "python/build_helpers.py get_llvm_package_info reads cmake/llvm-info.json",
+  "llvm_next_build_metadata_revision": "1f126a6dea50d185c0781743a667390037ae88bd",
+  "note": "llvm-build-info.json is separate build metadata; the release download helper consumes llvm-info.json. Executed native library SHA-256 is in the offline summary. No system LLVM is linked into these wheel invocations.",
+  "sources": [
+    "https://github.com/triton-lang/triton/blob/c01b6774b1865984607d89d89d3a10833de92037/cmake/llvm-info.json",
+    "https://github.com/triton-lang/triton/blob/c01b6774b1865984607d89d89d3a10833de92037/python/build_helpers.py"
+  ],
+  "torch": "2.14.0+cu130",
+  "cuda_runtime": "13.0",
+  "gpu": "NVIDIA GeForce RTX 4090",
+  "compute_capability": "8.9",
+  "driver": "595.84",
+  "compute_sanitizer": "CUDA Toolkit 13.2"
+}

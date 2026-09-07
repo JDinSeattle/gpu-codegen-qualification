@@ -1,0 +1,3 @@
+/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/.venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:83: RuntimeWarning: invalid value encountered in reduce
+  return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+PASS layer=interpreter; 140 cases × 3; benchmark=False

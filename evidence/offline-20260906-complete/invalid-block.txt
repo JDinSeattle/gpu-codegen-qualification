@@ -1,0 +1,6 @@
+at 3:10:
+def row_sum(X, Y, ROW_STRIDE, N_COLS, OUT_STRIDE, BLOCK: tl.constexpr):
+    row = tl.program_id(0)
+    col = tl.arange(0, BLOCK)
+          ^
+arange's range must be a power of 2

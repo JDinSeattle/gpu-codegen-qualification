@@ -1,0 +1,8 @@
+GPU Codegen Qualification
+Copyright 2026 JUNRUI DUAN
+
+Original harness code is Apache-2.0 WITH LLVM-exception.
+This project uses Triton, LLVM, PyTorch, and NVIDIA toolchains. Triton-generated
+code/IR and compiler metadata are retained for reproducibility. Each dependency
+retains its respective license; no dependency's binary wheel is redistributed.
+Developed with AI assistance. No upstream contribution or endorsement is claimed.

@@ -1,0 +1,4 @@
+# CPU interpreter + explicit-target compiler CI; actual GPU lock is requirements.lock.
+numpy==2.5.3
+triton==3.8.0
+pytest==9.1.1

@@ -1,0 +1,3809 @@
+{
+  "layer": "gpu",
+  "run_utc": "2026-09-07T03:18:12.265177+00:00",
+  "torch": "2.14.0+cu130",
+  "triton": "3.8.0",
+  "torch_cuda": "13.0",
+  "compilation_bypassed": false,
+  "seed": 20260906,
+  "tolerances": {
+    "atol": 0.0002,
+    "rtol": 0.0002,
+    "reference": "float64 sum of input values"
+  },
+  "source_sha256": {
+    "__init__.py": "5846e9d0e9573a3a087aa4f53e91ca870e8d2adf5c2a98d796d059f1818b86c2",
+    "execute.py": "bec0e66a986bbb4b362bca86c3870ea33eae354629f5bcc1a6f5048d34306af1",
+    "cases.py": "86cfc1eb6285abd26502546224e6a1d5e17c707614c416f31d524ad0e1d0b404",
+    "kernel.py": "a9ff7d871891e0927986696c98df4193824c5ff5063cbed80e5b2a0739b00fe2",
+    "offline.py": "58c9d843e0089debfffa2986a031a1841b54d23276540942da15a5d2f80486c8"
+  },
+  "gpu": {
+    "returncode": 0,
+    "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P3, 39, 27 %, 720 MHz, 5001 MHz, 37.01 W\n",
+    "stderr": ""
+  },
+  "device": "NVIDIA GeForce RTX 4090",
+  "capability": [
+    8,
+    9
+  ],
+  "cases": [
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 1
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 1
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 1
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 1
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 1,
+      "cols": 1,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 4.76837158203125e-07,
+      "max_error_over_bound": 0.00018440294107938785,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 4.76837158203125e-07,
+      "max_error_over_bound": 0.00018440294107938785,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 6.370246410369873e-07,
+      "max_error_over_bound": 0.0009915507190443077,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 6.370246410369873e-07,
+      "max_error_over_bound": 0.0009915507190443077,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 31,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 6.556510925292969e-07,
+      "max_error_over_bound": 0.0030275058817558586,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 6.556510925292969e-07,
+      "max_error_over_bound": 0.0030275058817558586,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 32,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 3.594905138015747e-07,
+      "max_error_over_bound": 0.0004857105230000701,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 3.594905138015747e-07,
+      "max_error_over_bound": 0.0004857105230000701,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 7,
+      "cols": 33,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 7
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 5.960464477539062e-07,
+      "max_error_over_bound": 0.001022534827024941,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 5.960464477539062e-07,
+      "max_error_over_bound": 0.001022534827024941,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.4882534742355347e-06,
+      "max_error_over_bound": 0.0016627142279162564,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.4882534742355347e-06,
+      "max_error_over_bound": 0.0016627142279162564,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 33,
+      "cols": 127,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 33
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 3.5762786865234375e-06,
+      "max_error_over_bound": 0.004692540081331105,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 3.5762786865234375e-06,
+      "max_error_over_bound": 0.004692540081331105,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 7.247668690979481e-06,
+      "max_error_over_bound": 0.005970468680415055,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.0290183126926422e-05,
+      "max_error_over_bound": 0.009741287046736227,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 64,
+      "cols": 1024,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 64
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.1205673217773438e-05,
+      "max_error_over_bound": 0.010220286773521292,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.3709068298339844e-05,
+      "max_error_over_bound": 0.010472803359092482,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float16",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.680117566138506e-05,
+      "max_error_over_bound": 0.02111587382693235,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "normal",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 1.477932255511405e-05,
+      "max_error_over_bound": 0.01565153103396967,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "zero",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "cancellation",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 0
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "all_nan",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 4,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    },
+    {
+      "rows": 128,
+      "cols": 4096,
+      "dtype": "float32",
+      "kind": "mixed_inf",
+      "warps": 8,
+      "repetitions": 3,
+      "output_canaries_unchanged": true,
+      "input_unchanged": true,
+      "max_abs_error": 0.0,
+      "max_error_over_bound": 0.0,
+      "nan_count": 128
+    }
+  ],
+  "benchmark": {
+    "metric": "CUDA-event graph time per launch; fixed operands and outputs; excludes compilation and transfers",
+    "samples": 31,
+    "launches_per_graph": 32,
+    "clock_controlled": false,
+    "shared_gpu": true,
+    "workloads": [
+      {
+        "rows": 1,
+        "cols": 1,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            0.8960000122897327,
+            0.8640000014565885,
+            0.8640000014565885,
+            0.9919999865815043,
+            0.9919999865815043,
+            0.9830000344663858,
+            0.8640000014565885,
+            1.053999993018806,
+            1.0239999974146485,
+            1.0130000300705433,
+            0.9919999865815043,
+            0.8640000014565885,
+            0.9919999865815043,
+            0.9599999757483602,
+            0.8640000014565885,
+            0.9599999757483602,
+            0.9599999757483602,
+            0.8640000014565885,
+            0.9919999865815043,
+            1.0239999974146485,
+            0.9919999865815043,
+            1.0239999974146485,
+            0.8640000014565885,
+            0.8640000014565885,
+            1.0189999593421817,
+            1.0779999429360032,
+            5.464999936521053,
+            1.0560000082477927,
+            0.9919999865815043,
+            0.8640000014565885,
+            0.9919999865815043
+          ],
+          "warps8": [
+            5.535999778658152,
+            0.8640000014565885,
+            0.8640000014565885,
+            1.0219999821856618,
+            1.0470000561326742,
+            0.9919999865815043,
+            0.9919999865815043,
+            0.8640000014565885,
+            0.9919999865815043,
+            0.9889999637380242,
+            0.9919999865815043,
+            0.8640000014565885,
+            0.8640000014565885,
+            0.9599999757483602,
+            0.9919999865815043,
+            0.9599999757483602,
+            0.9919999865815043,
+            0.8640000014565885,
+            0.8640000014565885,
+            5.375999957323074,
+            0.9919999865815043,
+            5.59999980032444,
+            0.8640000014565885,
+            1.01500004529953,
+            0.8640000014565885,
+            1.6850000247359276,
+            0.8640000014565885,
+            0.9919999865815043,
+            0.9919999865815043,
+            0.8640000014565885,
+            1.0160000529140234
+          ],
+          "torch": [
+            1.3760000001639128,
+            1.567999948747456,
+            1.3760000001639128,
+            1.3760000001639128,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.3760000001639128,
+            1.567999948747456,
+            1.5040000434964895,
+            1.5310000162571669,
+            1.5040000434964895,
+            1.3760000001639128,
+            1.563000027090311,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.4990000054240227,
+            1.408000010997057,
+            1.3760000001639128,
+            1.5040000434964895,
+            1.5030000358819962,
+            1.5040000434964895,
+            1.3760000001639128,
+            1.3760000001639128,
+            1.5620000194758177,
+            1.5040000434964895,
+            1.7600000137463212,
+            1.4939999673515558,
+            1.3760000001639128,
+            1.5360000543296337,
+            1.5040000434964895
+          ]
+        },
+        "orders": [
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ]
+        ],
+        "median_us": {
+          "warps4": 0.9919999865815043,
+          "warps8": 0.9919999865815043,
+          "torch": 1.5040000434964895
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 23 %, 2520 MHz, 10251 MHz, 64.76 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.76 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 7,
+        "cols": 31,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            0.9280000231228769,
+            1.0560000082477927,
+            5.472000222653151,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9599999757483602,
+            1.0239999974146485,
+            0.990999978967011,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9599999757483602,
+            0.9599999757483602,
+            0.9280000231228769,
+            0.9869999485090375,
+            0.9919999865815043,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9599999757483602,
+            0.9599999757483602,
+            1.0239999974146485,
+            0.9590000263415277,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9280000231228769
+          ],
+          "warps8": [
+            0.9280000231228769,
+            1.0239999974146485,
+            1.088000019080937,
+            0.9599999757483602,
+            0.9919999865815043,
+            0.9210000280290842,
+            0.9280000231228769,
+            0.990999978967011,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9480000007897615,
+            0.9280000231228769,
+            0.9919999865815043,
+            0.9919999865815043,
+            0.9280000231228769,
+            1.0239999974146485,
+            0.9280000231228769,
+            1.408000010997057,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9280000231228769,
+            0.9919999865815043,
+            6.207999773323536,
+            0.9219999774359167,
+            0.9260000078938901,
+            0.9510000236332417,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9599999757483602,
+            0.9599999757483602
+          ],
+          "torch": [
+            1.5360000543296337,
+            1.5040000434964895,
+            1.6319999704137444,
+            1.5300000086426735,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.5979999443516135,
+            1.5360000543296337,
+            1.5660000499337912,
+            1.5320000238716602,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.5040000434964895,
+            1.5620000194758177,
+            1.6959999920800328,
+            1.5259999781847,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5360000543296337,
+            1.5040000434964895,
+            1.5360000543296337,
+            1.5040000434964895,
+            1.6639999812468886,
+            1.5040000434964895,
+            1.5360000543296337,
+            1.5330000314861536,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.5040000434964895
+          ]
+        },
+        "orders": [
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ]
+        ],
+        "median_us": {
+          "warps4": 0.9599999757483602,
+          "warps8": 0.9480000007897615,
+          "torch": 1.5360000543296337
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 65.04 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 65.40 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 7,
+        "cols": 32,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            0.9599999757483602,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.8960000122897327,
+            0.9200000204145908,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9590000263415277,
+            0.9919999865815043,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9919999865815043,
+            0.9519999730400741,
+            0.9280000231228769,
+            0.9510000236332417,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.957000011112541,
+            0.9280000231228769,
+            0.957000011112541,
+            0.9599999757483602,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9800000116229057,
+            0.9919999865815043,
+            0.9280000231228769
+          ],
+          "warps8": [
+            1.0560000082477927,
+            0.9280000231228769,
+            0.9539999882690609,
+            0.9280000231228769,
+            0.9490000084042549,
+            0.9190000128000975,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.8960000122897327,
+            0.9280000231228769,
+            5.408000200986862,
+            1.0239999974146485,
+            0.9280000231228769,
+            5.429000128060579,
+            0.9510000236332417,
+            0.9539999882690609,
+            0.9280000231228769,
+            1.0239999974146485,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9210000280290842,
+            0.9280000231228769,
+            0.9280000231228769,
+            0.9919999865815043,
+            0.9580000187270343,
+            0.9280000231228769,
+            1.0239999974146485,
+            1.0239999974146485,
+            0.9599999757483602,
+            0.9549999958835542
+          ],
+          "torch": [
+            1.6570000443607569,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.4720000326633453,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5579999890178442,
+            1.5350000467151403,
+            1.4720000326633453,
+            1.7180000431835651,
+            1.5360000543296337,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.598999951966107,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5620000194758177,
+            1.5040000434964895,
+            1.4990000054240227,
+            1.5040000434964895,
+            1.4929999597370625,
+            1.4979999978095293,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5290000010281801,
+            1.5040000434964895,
+            1.5999999595806003,
+            5.95200015231967,
+            1.567999948747456,
+            1.4720000326633453
+          ]
+        },
+        "orders": [
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ]
+        ],
+        "median_us": {
+          "warps4": 0.9280000231228769,
+          "warps8": 0.9280000231228769,
+          "torch": 1.5040000434964895
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 65.43 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 65.43 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 7,
+        "cols": 33,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            1.1840000515803695,
+            1.0239999974146485,
+            5.532999988645315,
+            0.9599999757483602,
+            1.1520000407472253,
+            1.0450000409036875,
+            0.9599999757483602,
+            1.0239999974146485,
+            1.0239999974146485,
+            1.2159999459981918,
+            1.0560000082477927,
+            0.9599999757483602,
+            1.0560000082477927,
+            5.439999978989363,
+            1.0239999974146485,
+            1.0239999974146485,
+            0.9599999757483602,
+            0.9599999757483602,
+            1.1139999842271209,
+            1.0239999974146485,
+            1.0239999974146485,
+            0.9599999757483602,
+            0.9919999865815043,
+            0.9919999865815043,
+            1.120000029914081,
+            1.0239999974146485,
+            1.0239999974146485,
+            0.9599999757483602,
+            1.1190000222995877,
+            1.053999993018806,
+            1.0239999974146485
+          ],
+          "warps8": [
+            0.9919999865815043,
+            1.088000019080937,
+            0.9599999757483602,
+            0.9919999865815043,
+            1.1109999613836408,
+            1.0489999549463391,
+            1.088000019080937,
+            1.0509999701753259,
+            5.5680000223219395,
+            0.9919999865815043,
+            1.1139999842271209,
+            0.9599999757483602,
+            1.08299998100847,
+            1.088000019080937,
+            1.0239999974146485,
+            1.0550000006332994,
+            0.9599999757483602,
+            0.9599999757483602,
+            5.4709999822080135,
+            1.0560000082477927,
+            1.0560000082477927,
+            1.0239999974146485,
+            0.9599999757483602,
+            1.1840000515803695,
+            0.9919999865815043,
+            1.0499999625608325,
+            1.016999944113195,
+            0.9919999865815043,
+            0.9919999865815043,
+            1.0239999974146485,
+            1.019999966956675
+          ],
+          "torch": [
+            2.463999902829528,
+            1.5999999595806003,
+            1.5040000434964895,
+            1.5360000543296337,
+            1.5360000543296337,
+            1.567999948747456,
+            1.5620000194758177,
+            1.5999999595806003,
+            1.5660000499337912,
+            1.5040000434964895,
+            1.6299999551847577,
+            6.878000218421221,
+            1.6639999812468886,
+            1.567999948747456,
+            1.5999999595806003,
+            1.567999948747456,
+            1.5650000423192978,
+            1.5040000434964895,
+            1.6319999704137444,
+            1.5999999595806003,
+            1.567999948747456,
+            1.5999999595806003,
+            1.5360000543296337,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.5910000074654818,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5040000434964895,
+            1.5879999846220016,
+            1.567999948747456
+          ]
+        },
+        "orders": [
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ]
+        ],
+        "median_us": {
+          "warps4": 1.0239999974146485,
+          "warps8": 1.0239999974146485,
+          "torch": 1.567999948747456
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 65.20 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.96 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 33,
+        "cols": 127,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            1.0239999974146485,
+            1.0239999974146485,
+            12.44799979031086,
+            1.2159999459981918,
+            1.1769999982789159,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.2039999710395932,
+            1.1739999754354358,
+            1.888000057078898,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.2110000243410468,
+            1.183000043965876,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            0.9919999865815043,
+            5.59999980032444,
+            1.0239999974146485,
+            1.247999956831336,
+            1.1820000363513827,
+            1.1840000515803695,
+            1.2130000395700336,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1749999830499291,
+            1.183000043965876,
+            1.1840000515803695,
+            1.1790000135079026
+          ],
+          "warps8": [
+            1.0239999974146485,
+            1.2390000047162175,
+            1.3689999468624592,
+            1.1820000363513827,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.2150000547990203,
+            1.2080000014975667,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1749999830499291,
+            1.1840000515803695,
+            1.1759999906644225,
+            1.2159999459981918,
+            1.2369999894872308,
+            1.0239999974146485,
+            16.3199994713068,
+            1.2799999676644802,
+            1.2120000319555402,
+            1.408000010997057,
+            1.1840000515803695,
+            2.3250000085681677,
+            1.20900000911206,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.1840000515803695
+          ],
+          "torch": [
+            1.7600000137463212,
+            1.9839999731630087,
+            1.9789999350905418,
+            1.9199999514967203,
+            5.183999892324209,
+            1.9839999731630087,
+            1.9150000298395753,
+            1.9199999514967203,
+            1.9199999514967203,
+            1.9199999514967203,
+            1.976999919861555,
+            1.9470000406727195,
+            1.9199999514967203,
+            2.1440000273287296,
+            2.208000048995018,
+            1.9470000406727195,
+            1.7600000137463212,
+            8.0960001796484,
+            1.9470000406727195,
+            1.9470000406727195,
+            7.74399982765317,
+            1.7920000245794654,
+            1.7600000137463212,
+            8.60000029206276,
+            1.9519999623298645,
+            1.9199999514967203,
+            1.9199999514967203,
+            1.9829999655485153,
+            1.9180000526830554,
+            1.9199999514967203,
+            1.9199999514967203
+          ]
+        },
+        "orders": [
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ]
+        ],
+        "median_us": {
+          "warps4": 1.1840000515803695,
+          "warps8": 1.1840000515803695,
+          "torch": 1.9470000406727195
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.75 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.75 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 64,
+        "cols": 1024,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            1.2799999676644802,
+            1.1840000515803695,
+            1.1520000407472253,
+            1.408000010997057,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.247999956831336,
+            1.088000019080937,
+            1.088000019080937,
+            1.1729999678209424,
+            1.120000029914081,
+            1.120000029914081,
+            1.120000029914081,
+            1.2069999938830733,
+            1.3439999893307686,
+            1.2100000167265534,
+            1.120000029914081,
+            1.1840000515803695,
+            1.088000019080937,
+            1.1840000515803695,
+            1.1769999982789159,
+            1.1840000515803695,
+            1.2120000319555402,
+            1.3749999925494194,
+            1.1520000407472253,
+            1.120000029914081,
+            1.1520000407472253,
+            1.183000043965876,
+            1.120000029914081,
+            1.088000019080937,
+            1.247999956831336
+          ],
+          "warps8": [
+            1.1520000407472253,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.246000058017671,
+            1.1840000515803695,
+            1.2159999459981918,
+            1.2159999459981918,
+            1.120000029914081,
+            1.120000029914081,
+            1.1520000407472253,
+            1.183000043965876,
+            1.247999956831336,
+            1.2159999459981918,
+            1.20599998626858,
+            1.1840000515803695,
+            5.530000198632479,
+            1.120000029914081,
+            1.171999960206449,
+            1.3119999784976244,
+            1.120000029914081,
+            1.247999956831336,
+            1.1840000515803695,
+            1.1840000515803695,
+            1.120000029914081,
+            1.120000029914081,
+            1.120000029914081,
+            1.1739999754354358,
+            1.1840000515803695,
+            1.120000029914081,
+            1.1520000407472253,
+            1.1840000515803695
+          ],
+          "torch": [
+            3.0720001086592674,
+            3.0300000216811895,
+            2.976000076159835,
+            3.0930000357329845,
+            3.0720001086592674,
+            3.0400000978261232,
+            3.0720001086592674,
+            3.0720001086592674,
+            3.0700000934302807,
+            2.976000076159835,
+            3.126000054180622,
+            3.0330000445246696,
+            3.0620000325143337,
+            3.031000029295683,
+            3.0950000509619713,
+            3.0350000597536564,
+            2.976000076159835,
+            2.976000076159835,
+            3.0400000978261232,
+            3.0950000509619713,
+            3.0720001086592674,
+            3.0640000477433205,
+            3.0400000978261232,
+            2.976000076159835,
+            3.0720001086592674,
+            2.976000076159835,
+            3.134000115096569,
+            3.0400000978261232,
+            7.584000006318092,
+            2.976000076159835,
+            2.976000076159835
+          ]
+        },
+        "orders": [
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ]
+        ],
+        "median_us": {
+          "warps4": 1.183000043965876,
+          "warps8": 1.1840000515803695,
+          "torch": 3.0400000978261232
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.52 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 18 %, 2520 MHz, 10251 MHz, 64.52 W\n",
+          "stderr": ""
+        }
+      },
+      {
+        "rows": 128,
+        "cols": 4096,
+        "dtype": "float32",
+        "latency_us": {
+          "warps4": [
+            1.5999999595806003,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.5999999595806003,
+            1.5999999595806003,
+            2.015999983996153,
+            1.8240000354126096,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.9839999731630087,
+            1.7900000093504786,
+            2.0089999306946993,
+            1.7920000245794654,
+            1.5999999595806003,
+            1.9199999514967203,
+            1.6319999704137444,
+            1.8500000005587935,
+            1.7600000137463212,
+            8.960000239312649,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.7600000137463212,
+            1.8240000354126096,
+            1.8560000462457538,
+            1.8240000354126096,
+            1.8560000462457538,
+            1.8230000277981162,
+            1.5999999595806003,
+            1.7920000245794654
+          ],
+          "warps8": [
+            7.007999811321497,
+            43.00599917769432,
+            1.5999999595806003,
+            6.3680000603199005,
+            1.5999999595806003,
+            1.567999948747456,
+            2.0800000056624413,
+            1.7890000017359853,
+            1.5999999595806003,
+            1.5999999595806003,
+            1.8240000354126096,
+            1.8560000462457538,
+            1.7600000137463212,
+            1.5999999595806003,
+            1.7869999865069985,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.5999999595806003,
+            1.8560000462457538,
+            1.5999999595806003,
+            1.6319999704137444,
+            1.5999999595806003,
+            1.8469999777153134,
+            1.7600000137463212,
+            1.5999999595806003,
+            1.7920000245794654,
+            1.5999999595806003,
+            1.7600000137463212,
+            1.7600000137463212,
+            1.7600000137463212,
+            1.8230000277981162
+          ],
+          "torch": [
+            6.591999903321266,
+            6.399999838322401,
+            6.432000081986189,
+            6.616999860852957,
+            6.399999838322401,
+            6.912000011652708,
+            6.399999838322401,
+            6.645000074058771,
+            6.399999838322401,
+            6.6559999249875546,
+            6.6559999249875546,
+            6.560000125318766,
+            6.612000055611134,
+            7.712000049650669,
+            6.591999903321266,
+            6.399999838322401,
+            6.651999894529581,
+            6.432000081986189,
+            6.591999903321266,
+            6.585999857634306,
+            6.399999838322401,
+            6.399999838322401,
+            6.399999838322401,
+            6.591999903321266,
+            6.399999838322401,
+            6.612999830394983,
+            6.560000125318766,
+            6.432000081986189,
+            6.591999903321266,
+            6.591999903321266,
+            6.624000146985054
+          ]
+        },
+        "orders": [
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "warps8",
+            "torch"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "warps4",
+            "torch",
+            "warps8"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ],
+          [
+            "torch",
+            "warps4",
+            "warps8"
+          ],
+          [
+            "warps8",
+            "torch",
+            "warps4"
+          ],
+          [
+            "warps8",
+            "warps4",
+            "torch"
+          ],
+          [
+            "torch",
+            "warps8",
+            "warps4"
+          ]
+        ],
+        "median_us": {
+          "warps4": 1.7600000137463212,
+          "warps8": 1.7600000137463212,
+          "torch": 6.591999903321266
+        },
+        "gpu_before": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 19 %, 2520 MHz, 10251 MHz, 63.96 W\n",
+          "stderr": ""
+        },
+        "gpu_after": {
+          "returncode": 0,
+          "stdout": "name, driver_version, pstate, temperature.gpu, utilization.gpu [%], clocks.current.sm [MHz], clocks.current.memory [MHz], power.draw [W]\nNVIDIA GeForce RTX 4090, 595.84, P2, 40, 19 %, 2520 MHz, 10251 MHz, 64.04 W\n",
+          "stderr": ""
+        }
+      }
+    ]
+  },
+  "status": "passed"
+}

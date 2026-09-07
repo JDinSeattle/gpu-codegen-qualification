@@ -1,0 +1,30 @@
+[
+  {
+    "warps": 4,
+    "name": "row_sum",
+    "hash": "f623e0baf7be6319f8c9676ce0930040f0f4a36056e78fb1f30e930e3839b7e0",
+    "num_warps": 4,
+    "shared_bytes": 16,
+    "registers_per_thread": 37,
+    "spills": 0,
+    "arch": "sm89",
+    "cubin_sha256": "0717d0273b34a6254737835b9e4f8bed9c11a9c7e3735b4f49c3cbc0672aa99d",
+    "sass_instruction_lines": 216,
+    "bar_sync": 1,
+    "shfl": 7
+  },
+  {
+    "warps": 8,
+    "name": "row_sum",
+    "hash": "6f3767df90c89cceb299382c872d46561c4f6df5dc51ea2957a5c41fba5e7cbe",
+    "num_warps": 8,
+    "shared_bytes": 32,
+    "registers_per_thread": 29,
+    "spills": 0,
+    "arch": "sm89",
+    "cubin_sha256": "59be4eadb35343fd2155ed9bcf35311016dc73d891c3360b339333a6dc77f86a",
+    "sass_instruction_lines": 136,
+    "bar_sync": 1,
+    "shfl": 8
+  }
+]

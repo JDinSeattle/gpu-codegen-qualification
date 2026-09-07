@@ -1,0 +1,38 @@
+name: Interpreter and offline compiler
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cpu-layers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      CUDA_VISIBLE_DEVICES: ''
+      PYTHONPATH: src
+      TRITON_CACHE_DIR: .work/triton-cache
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          python -m venv .venv
+          .venv/bin/python -m pip install -r requirements-cpu.lock
+          .venv/bin/python -m pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu
+      - run: .venv/bin/python -m pytest -q
+      - name: Program semantics (compilation bypassed)
+        run: TRITON_INTERPRET=1 .venv/bin/python -m gpu_qualification.execute --mode interpreter --output .work/interpreter
+      - name: Real sm_89 compilation without a driver
+        run: TRITON_INTERPRET=0 .venv/bin/python -m gpu_qualification.offline --output .work/offline
+      - name: Integrity of recorded GPU evidence (does not execute GPU tests)
+        run: python tools/verify_evidence.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cpu-layers-${{ github.sha }}
+          path: |
+            .work/interpreter
+            .work/offline

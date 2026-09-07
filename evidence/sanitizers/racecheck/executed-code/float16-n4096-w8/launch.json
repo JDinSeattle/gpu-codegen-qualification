@@ -1,0 +1,9 @@
+{
+  "name": "row_sum",
+  "hash": "87b8358903f2945e37dfed5db07e02807d900e87d7b14daaec54f5814b467622",
+  "num_warps": 8,
+  "shared_bytes": 32,
+  "registers_per_thread": 29,
+  "spills": 0,
+  "arch": "sm89"
+}
