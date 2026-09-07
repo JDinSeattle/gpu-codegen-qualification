@@ -50,6 +50,8 @@ and linked by hashes in the timing records. We do not conflate these signatures.
 
 The resource tradeoff is lower per-thread register usage versus more threads and
 shared memory per CTA. Static instruction counts alone cannot determine latency
-or occupancy. The paired timing cohort does not show a material benefit for
-eight warps. This no-benefit outcome is retained instead of treating fewer SASS
+or occupancy. The two timing cohorts show mixed effects: some final-cohort medians improve
+with eight warps, while several are nearly equal or worse, and the earlier
+cohort does not reproduce every improvement. No consistent general win is
+established. These outcomes are retained instead of treating fewer SASS
 instructions as proof of optimization.

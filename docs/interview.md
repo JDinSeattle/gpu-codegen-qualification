@@ -10,7 +10,7 @@
   driver discovery in offline compilation.
 - Validated GPU memory/synchronization with NVIDIA memcheck, racecheck and synccheck;
   compared warp layouts using exact cubin hashes, SASS/resource records and a
-  paired `torch.sum` baseline, retaining the no-benefit eight-warp result.
+  paired `torch.sum` baseline, retaining mixed eight-warp outcomes across both timing cohorts.
 
 **面试问题**
 

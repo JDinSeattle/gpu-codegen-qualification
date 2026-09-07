@@ -13,8 +13,8 @@ compiler validation, and real GPU execution** separate. Target: NVIDIA RTX 4090 
 
 The [measured report](evidence/REPORT.md) includes a `torch.sum` baseline, randomized paired
 CUDA-event samples and exact hashes of timed cubins. Four versus eight warps changes the
-generated code and resource use; **the measurements do not establish a performance benefit
-from eight warps**. All samples and both configurations are retained.
+generated code and resource use; **the two timing cohorts do not establish a consistent benefit
+from eight warps across workloads**. All samples and both configurations are retained.
 
 ## Reproduce
 
