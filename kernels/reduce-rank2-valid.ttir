@@ -1,0 +1,18 @@
+// Rank-2 fixture. The only reduced dimension is axis 1.
+module {
+  tt.func public @reduce(%x: !tt.ptr<f32>, %y: !tt.ptr<f32>) {
+    %offset = tt.make_range {start = 0 : i32, end = 32 : i32} : tensor<32xi32>
+    %base = tt.splat %x : !tt.ptr<f32> -> tensor<32x!tt.ptr<f32>>
+    %ptr = tt.addptr %base, %offset : tensor<32x!tt.ptr<f32>>, tensor<32xi32>
+    %v = tt.load %ptr : tensor<32x!tt.ptr<f32>>
+    %matrix = tt.expand_dims %v {axis = 0 : i32} : tensor<32xf32> -> tensor<1x32xf32>
+    %sum = "tt.reduce"(%matrix) <{axis = 1 : i32}> ({
+    ^bb0(%lhs: f32, %rhs: f32):
+      %add = arith.addf %lhs, %rhs : f32
+      tt.reduce.return %add : f32
+    }) : (tensor<1x32xf32>) -> tensor<1xf32>
+    %out = tt.splat %y : !tt.ptr<f32> -> tensor<1x!tt.ptr<f32>>
+    tt.store %out, %sum : tensor<1x!tt.ptr<f32>>
+    tt.return
+  }
+}

@@ -1,0 +1,1 @@
+{"passed": true, "stages": ["ttir", "ttgir", "llir", "ptx", "cubin"], "driver_initialized": false}

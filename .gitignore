@@ -2,3 +2,6 @@
 .work/
 __pycache__/
 .pytest_cache/
+
+# Local validation environments
+/.venv

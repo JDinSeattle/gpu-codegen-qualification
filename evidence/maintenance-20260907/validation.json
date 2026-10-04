@@ -1,0 +1,81 @@
+{
+  "started_utc": "2026-09-07T23:27:57.259999+00:00",
+  "environment": {
+    "mode": "local_cpu_no_gpu_execution",
+    "os": "Linux-7.0.0-29-generic-x86_64-with-glibc2.43",
+    "python": "Python 3.12.13",
+    "cpu": "13th Gen Intel(R) Core(TM) i9-13900K",
+    "scope": "C hardware/sanitizer evidence is historical; B measures shared local physical CPU; no new hosted CI"
+  },
+  "commands": [
+    {
+      "name": "pytest",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "--junitxml=/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/evidence/maintenance-20260907/pytest.xml"
+      ],
+      "cwd": "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification",
+      "environment_overrides": {},
+      "exit_code": 0,
+      "duration_s": 0.8151073330081999,
+      "log": "evidence/maintenance-20260907/pytest.log",
+      "log_sha256": "81bdf2a73124d8ee22bf0ffaa3f8a7a2d507ee13f7ae667804f29d5225a1c5e8"
+    },
+    {
+      "name": "retained",
+      "argv": [
+        ".venv/bin/python",
+        "tools/verify_evidence.py"
+      ],
+      "cwd": "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification",
+      "environment_overrides": {},
+      "exit_code": 0,
+      "duration_s": 0.1641012070031138,
+      "log": "evidence/maintenance-20260907/retained.log",
+      "log_sha256": "c6812fdf8ccef63604fb9d53c620b0e3f33daeac21de71bafb90d1e8099d73ac"
+    },
+    {
+      "name": "interpreter",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "gpu_qualification.execute",
+        "--mode",
+        "interpreter",
+        "--output",
+        "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/evidence/maintenance-20260907/interpreter"
+      ],
+      "cwd": "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification",
+      "environment_overrides": {
+        "TRITON_INTERPRET": "1"
+      },
+      "exit_code": 0,
+      "duration_s": 9.329398497997317,
+      "log": "evidence/maintenance-20260907/interpreter.log",
+      "log_sha256": "6e47d6fc2aa8aeec577a171796bcdf15dbe100c7abefd0c723639b258a0bcfe3"
+    },
+    {
+      "name": "offline",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "gpu_qualification.offline",
+        "--output",
+        "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/evidence/maintenance-20260907/offline"
+      ],
+      "cwd": "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification",
+      "environment_overrides": {
+        "TRITON_INTERPRET": "0",
+        "TRITON_CACHE_DIR": "/home/postedism/Desktop/compliers/C-gpu-codegen-qualification/.work/maintenance-offline-cache"
+      },
+      "exit_code": 0,
+      "duration_s": 1.967629555001622,
+      "log": "evidence/maintenance-20260907/offline.log",
+      "log_sha256": "272841aeb4ce5b0f02b8fc0326de89e8cd9a12786417300570d30dc6b45f3536"
+    }
+  ],
+  "finished_utc": "2026-09-07T23:28:09.541644+00:00"
+}

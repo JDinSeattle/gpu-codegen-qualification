@@ -1,14 +1,15 @@
 """Shared seeded operands and oracle for CPU semantics and actual GPU execution."""
 import numpy as np
 
-SHAPES = [(1, 1), (7, 31), (7, 32), (7, 33), (33, 127), (64, 1024), (128, 4096)]
+HISTORICAL_SHAPES = [(1, 1), (7, 31), (7, 32), (7, 33), (33, 127), (64, 1024), (128, 4096)]
+SHAPES = [(1, 1), (7, 31), (7, 32), (7, 33), (33, 255), (64, 1024), (128, 4097)]
 KINDS = ("normal", "zero", "cancellation", "all_nan", "mixed_inf")
 
 
 def make_input(rows, cols, dtype, kind, seed=20260906):
     rng = np.random.default_rng(seed + rows * 10000 + cols)
     # Row padding must never contribute to a valid row's masked reduction.
-    storage = np.full((rows, cols + 7), 12345, dtype=dtype)
+    storage = np.full((rows, cols + 7), np.nan, dtype=dtype)
     x = storage[:, :cols]
     x[:] = rng.normal(size=(rows, cols)).astype(dtype)
     if kind == "zero":

@@ -11,6 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @pytest.mark.parametrize("name,code,diagnostic", [
     ("reduce-valid.ttir", 0, None),
+    ("reduce-rank2-valid.ttir", 0, None),
+    ("reduce-rank2-axis-invalid.ttir", 1, "axis out of bounds for operand rank 2"),
     ("reduce-axis-invalid.ttir", 1, "axis out of bounds for operand rank 1"),
     ("reduce-axis-negative.ttir", 1, "axis"),
 ])

@@ -12,7 +12,7 @@ import time
 import numpy as np
 import torch
 import triton
-from .cases import SHAPES, KINDS, make_input, compare
+from .cases import SHAPES, HISTORICAL_SHAPES, KINDS, make_input, compare
 from .kernel import row_sum
 
 
@@ -27,9 +27,9 @@ def canaries(storage, rows):
     np.testing.assert_array_equal(host[::2], np.full(rows + 1, -9876.5, np.float32))
 
 
-def run_correctness(device, output):
+def run_correctness(device, output, shapes=SHAPES):
     records, compiled_keys = [], set()
-    for rows, cols in SHAPES:
+    for rows, cols in shapes:
         for dtype in (np.float16, np.float32):
             for kind in KINDS:
                 storage, reference_input = make_input(rows, cols, dtype, kind)
@@ -66,10 +66,10 @@ def run_correctness(device, output):
     return records
 
 
-def benchmark(samples, launches, output):
+def benchmark(samples, launches, output, shapes=SHAPES):
     measurements = []
     rng = random.Random(20260906)
-    for rows, cols in SHAPES:
+    for rows, cols in shapes:
         storage, source = make_input(rows, cols, np.float32, "normal")
         x_storage = torch.from_numpy(storage).cuda()
         x = x_storage[:, :cols]
@@ -137,10 +137,12 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["interpreter", "gpu"], required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--profile", choices=["cloud", "historical"], default="cloud")
     parser.add_argument("--benchmark", action="store_true")
     parser.add_argument("--samples", type=int, default=31)
     parser.add_argument("--launches", type=int, default=32)
     args = parser.parse_args()
+    shapes = SHAPES if args.profile == "cloud" else HISTORICAL_SHAPES
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     if any(output.iterdir()):
@@ -157,7 +159,7 @@ def main():
         if not torch.cuda.is_available() or torch.cuda.get_device_capability() != (8, 9):
             parser.error("hardware qualification requires an sm_89 CUDA device")
         device = "cuda"
-    report = {"layer": args.mode, "run_utc": datetime.now(timezone.utc).isoformat(),
+    report = {"profile": args.profile, "layer": args.mode, "run_utc": datetime.now(timezone.utc).isoformat(),
               "torch": torch.__version__, "triton": triton.__version__, "torch_cuda": torch.version.cuda,
               "compilation_bypassed": args.mode == "interpreter", "seed": 20260906,
               "tolerances": {"atol": 2e-4, "rtol": 2e-4, "reference": "float64 sum of input values"},
@@ -167,13 +169,13 @@ def main():
         report["gpu"] = gpu_snapshot()
         report["device"] = torch.cuda.get_device_name()
         report["capability"] = list(torch.cuda.get_device_capability())
-    report["cases"] = run_correctness(device, output)
+    report["cases"] = run_correctness(device, output, shapes)
     (output / "correctness.json").write_text(json.dumps(report, indent=2) + "\n")
     if args.benchmark:
         report["benchmark"] = {"metric": "CUDA-event graph time per launch; fixed operands and outputs; excludes compilation and transfers",
                                "samples": args.samples, "launches_per_graph": args.launches,
                                "clock_controlled": False, "shared_gpu": True,
-                               "workloads": benchmark(args.samples, args.launches, output)}
+                               "workloads": benchmark(args.samples, args.launches, output, shapes)}
     report["status"] = "passed"
     (output / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
     print(f"PASS layer={args.mode}; {len(report['cases'])} cases × 3; benchmark={args.benchmark}")

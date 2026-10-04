@@ -1,75 +1,62 @@
 # GPU Codegen Qualification
 
-A scoped Triton row-reduction qualification project that keeps **program semantics,
-compiler validation, and real GPU execution** separate. Target: NVIDIA RTX 4090 / sm_89.
+A Triton masked row-reduction qualification with separate interpreter semantics, explicit sm_89 compilation, and physical-GPU evidence. Fresh profiles preserve historical artifacts while exposing boundary lengths and rank-2 invalid-axis diagnostics.
 
-| Validation layer | Recorded result | What it establishes |
-|---|---|---|
-| CPU interpreter | 140 cases × 3 passed | Supported program semantics; compilation is bypassed |
-| Explicit-target compiler | 24 configurations, no driver initialization | TTIR → TTGIR → LLVM IR → PTX → cubin |
-| RTX 4090 execution | 140 cases × 3 passed | Numerical outputs, input immutability, output canaries |
-| NVIDIA Compute Sanitizer | memcheck, racecheck, synccheck: zero errors/hazards | Memory/synchronization checks for these real launches |
-| Unit/IR regressions | 14 tests passed | Oracle sensitivity and real fixed-IR verifier behavior |
+## Confirmed qualification results
 
-The [measured report](evidence/REPORT.md) includes a `torch.sum` baseline, randomized paired
-CUDA-event samples and exact hashes of timed cubins. Four versus eight warps changes the
-generated code and resource use; **the two timing cohorts do not establish a consistent benefit
-from eight warps across workloads**. All samples and both configurations are retained.
+These are the user-confirmed results from a separate cloud test run, recorded in the experience bank. The device, workload, timing round, and counting boundaries below remain part of each result. They are distinct from the CPU checks performed in this checkout; cloud-hosted testing does not imply production deployment.
 
-## Reproduce
+- Built a three-layer qualification for one Triton masked row-reduction family (fp16/fp32 inputs, fp32 accumulation, one program per row): 140 interpreter identities — 7 lengths 1/31/32/33/255/1024/4097 × 2 dtypes × 5 data/layout modes, each repeated 3 times for 420 executions, not 420 independent cases — plus 24 explicit sm_89 compile configurations and retained historical RTX 4090 evidence.
 
-Python 3.12 on Linux x86-64. The full pinned PyTorch CUDA environment needs several GB.
-The GPU step requires an sm_89 device; the offline compiler step does not.
+- Checked interpreter semantics against an independent CPU FP64 row-wise sum with masked padding filled as NaN and output canaries unchanged before and after; all 24 compile configurations produced a complete TTIR/TTGIR/LLVM IR/PTX/cubin chain with no CUDA device discovery before process exit, and the current CPU-only maintenance runs 14 pytest cases.
+
+- Localized invalid-axis failures to standalone TTIR: a rank-2 tensor with axis=2 is rejected by the verifier, the legal sibling axis=1 compiles all the way to cubin, and negative-axis and invalid-block-shape cases produce explicit diagnostics.
+
+- Kept the historical GPU performance result mixed and scoped: under the same historical-style pairing protocol, 1024 columns measured 4 warp at 6.2 μs versus 8 warp at 6.8 μs, while 4097 columns measured 4 warp at 11.9 μs versus 8 warp at 11.4 μs, so warp count trades off per workload; timings include 100 replays per graph across 30 pairs and exclude compilation, H2D transfer and Python launch.
+
+- Tied timing artifacts to the exact cubin that was loaded, recording compile parameters, input shape and graph capture order, and retained resource and disassembly records only as constraints on comparison identity, not as proof that a particular instruction arrangement caused a speedup.
+
+## Implementation and reproduction
+
+| Contract | Implementation |
+|---|---|
+| Cloud and historical input profiles | [src/gpu_qualification/cases.py](src/gpu_qualification/cases.py) |
+| Interpreter and hardware runner | [src/gpu_qualification/execute.py](src/gpu_qualification/execute.py) |
+| Rank-2 invalid axis and legal sibling | [kernels](kernels) |
+| Optimization-safe historical evidence replay | [tools/verify_evidence.py](tools/verify_evidence.py) |
+
+Run each experiment into a fresh output directory to preserve earlier evidence.
 
 ```bash
 python3.12 -m venv .venv
 .venv/bin/python -m pip install -r requirements.lock
 CUDA_VISIBLE_DEVICES='' .venv/bin/python -m pytest -q
-
-# Layer 1: interpreter — no compilation, no GPU claim.
 PYTHONPATH=src TRITON_INTERPRET=1 CUDA_VISIBLE_DEVICES='' \
-  .venv/bin/python -m gpu_qualification.execute \
-  --mode interpreter --output .work/interpreter
-
-# Layer 2: actual explicit-target compilation; asserts driver remains uninitialized.
-PYTHONPATH=src TRITON_INTERPRET=0 CUDA_VISIBLE_DEVICES='' TRITON_CACHE_DIR=.work/offline-cache \
+  .venv/bin/python -m gpu_qualification.execute --mode interpreter \
+  --profile cloud --output .work/cloud-interpreter
+PYTHONPATH=src TRITON_INTERPRET=0 CUDA_VISIBLE_DEVICES='' \
   .venv/bin/python -m gpu_qualification.offline --output .work/offline
-
-# Layer 3: real RTX 4090 execution and paired graph timing.
-PYTHONPATH=src TRITON_INTERPRET=0 TRITON_CACHE_DIR=.work/gpu-cache \
-  .venv/bin/python -m gpu_qualification.execute \
-  --mode gpu --output .work/gpu --benchmark
-
-# Separate sanitizer invocations; require NVIDIA CUDA Toolkit Compute Sanitizer.
-bash tools/sanitizers.sh .work/sanitizers
-
-# Verify the retained hardware evidence without a GPU or dependencies.
-python3 tools/verify_evidence.py
+python3 -O tools/verify_evidence.py
 ```
 
-Output directories must be empty to preserve previous results. For CPU-only CI, install
-`requirements-cpu.lock` and `torch==2.14.0` from PyTorch's CPU wheel index. The workflow runs
-the first two layers and verifies retained hardware evidence; it **does not claim to rerun GPU tests**.
+Regression entry points: [tests/test_oracle.py](tests/test_oracle.py), [tests/test_ir.py](tests/test_ir.py), [tests/test_evidence_rejection.py](tests/test_evidence_rejection.py).
 
-## Scope and compiler regression
+## Scope and evidence
 
-Input dtypes: float16 and float32; accumulation/output: float32. Shapes cover columns
-1, 31, 32, 33, 127, 1024, 4096 and 1–128 rows. Row padding is deliberately nonzero;
-masked loads must exclude it. Output canaries surround and separate row results.
-Normal/zero/cancellation/all-NaN/mixed-infinity inputs use independent float64 references,
-absolute and relative error limits, and exact special-value classification checks.
+The default cloud profile includes 255 and 4097 columns with NaN padding; --profile historical keeps the old 127/4096 cohort available. Retained GPU artifacts are not replaced by interpreter results.
 
-[The minimal fixed IR](kernels/reduce-axis-invalid.ttir) selects axis 1 for a rank-1
-`tt.reduce`. It fails in the real verifier with an axis-bounds diagnostic. The
-[legal axis-0 sibling](kernels/reduce-valid.ttir) compiles all the way to cubin;
-axis -1 and a non-power-of-two AST block are separate negative regressions.
-These are qualification fixtures for expected invalid input, not an upstream bug-fix claim.
+- The current update reruns only the CPU interpreter and explicit sm_89 compile layers; RTX 4090 numerical, graph-timing and sanitizer evidence is historical and is not a GPU rerun in this round.
 
-See [compiler analysis](docs/compiler-analysis.md), [measurement limits](docs/methodology.md)
-and [interview notes](docs/interview.md). The installed Triton wheel is fixed at 3.8.0;
-its release commit, release-selected LLVM revision and native library checksum are recorded
-in [toolchain evidence](evidence/toolchain.json). System LLVM is not substituted into Triton.
+- A CPU interpreter pass does not verify thread synchronization, hardware memory access, code generation or resource limits, and sanitizer diagnostics and real-device numerics are independent layers that cannot substitute for each other.
 
-This is one reduction family and one GPU architecture. No H100-specific instructions,
-descriptor lowering, arbitrary strided-column layout, or cross-architecture qualification
-is claimed. No upstream message or PR has been sent.
+- The 4/8-warp outcomes are mixed — 4 warp faster at 1024 columns and 8 warp slightly faster at 4097 — so no general performance win is established; the pairing numbers are an analysis example under the historical-style protocol.
+
+- No H100/Blackwell/Rubin or arbitrary-layout guarantee; TMA and WGMMA cannot be claimed inside this sm_89 qualification scope, and Hopper features are not mixed into the retained code chain.
+
+- The standalone checksum verifier still uses assertions and runs only without -O; the Bounded Pass hardening is not ported here and must not be borrowed to claim this project was fixed.
+
+- A cubin digest alone is insufficient: it must come from the exact binary used for timing, together with compile parameters, input shape and graph capture order; resource and disassembly records constrain comparison identity but cannot prove a specific instruction arrangement caused the speedup.
+
+- Graph timings exclude compilation, H2D transfer and Python launch; the 140 identities are repeated 3 times (420 executions) and must not be described as 420 independent cases.
+
+The [previous README](README.historical.md) preserves earlier setup details, design discussion, and historical measurements. Its older counts, splits, versions, and timing cohorts must not be mixed with the confirmed round above. [Result provenance](docs/experience-bank-results.json) retains the confirmed bullet text; [checkout validation](docs/checkout-validation.md) records what was actually rerun here.
